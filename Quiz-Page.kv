@@ -1,15 +1,4 @@
 <LoginManager>:
-
-   Question1Screen:
-      name: "question1"
-
-   CorrectScreen:
-      name: "correct"
-
-   ErrorScreen:
-      name: "error"
-   Question2Screen:
-      name: "question2"
    LoginPage:
       name: "login"
    NewUser:
@@ -21,71 +10,13 @@
 
 
 
-<Question1Screen>:
-
-   BoxLayout:
-      orientation: "vertical"
-      Label:
-         size_hint: 1, 7
-         text: "What is the state fruit of Texas?"
-      BoxLayout:
-         Button:
-            padding: 20
-            text: "Peach"
-            on_release: root.answer_question(False)
-         Button:
-            padding: 20
-            text: "Grapefruit"
-            on_release: root.answer_question(True)
-         Button:
-            padding: 20
-            text: "Orange"
-            on_release: root.answer_question(False)
-<Question2Screen>
-   BoxLayout:
-      orientation: "vertical"
-      Label:
-         text: "Complete the following verse \n\n'The stars at night are big and bright______"
-         size_hint: 1,7
-
-      TextInput:
-         id: heart
-         hint_text: "Enter remaining verse"
-      Button:
-         text: "Press Enter"
-         on_release: root.answer_question(heart.text)
-
-
-
-
-<CorrectScreen>:
-   BoxLayout:
-      orientation: "vertical"
-      Label:
-         text: "CORRECT!"
-      Button:
-         size_hint:0.2,0.05
-         pos_hint: {"center_x":0.5,"center_y":0.5}
-         text: "ADVANCE >>"
-         on_release: root.correct_advance()
-
-<ErrorScreen>:
-   BoxLayout:
-      orientation: "vertical"
-      Label:
-         text: "WRONG!"
-      Button:
-         size_hint:0.2,0.05
-         pos_hint: {"center_x":0.5,"center_y":0.5}
-         text: "ADVANCE >>"
-         on_release: root.error_advance()
 
 <LoginPage>
    BoxLayout:
       orientation: "horizontal"
       Label:
          text: ""
-         size_hint: .3,1
+
       BoxLayout:
          orientation: "vertical"
          Label:
@@ -93,20 +24,20 @@
          TextInput:
             id: username
             hint_text: "Enter Username"
-            size_hint: 1.3,.5
+            size_hint: 1,.5
          TextInput:
             id: password
             hint_text: "Enter Password"
-            size_hint: 1.3,.5
+            size_hint: 1,.5
          Button:
             text: "Login"
             color: "black"
-            size_hint: 1.3,.5
+            size_hint: 1,.5
             on_release: root.check_user(username.text, password.text)
          Button:
             text: "Create New User"
             color: "black"
-            size_hint: 1.3,.25
+            size_hint: 1,.25
             on_release: root.new_account()
          Label:
             text: ""

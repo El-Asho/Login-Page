@@ -26,29 +26,13 @@ class LoginManager(ScreenManager):
 
 
 
-class Question1Screen(Screen):
-   def answer_question(self, bool):
-        if bool:
-            self.manager.current = "correct"
-        else:
-            self.manager.current = "error"
-class Question2Screen(Screen):
-   pass
-class CorrectScreen(Screen):
-    def correct_advance(self):
-        self.manager.current = "login"
 
-
-
-class ErrorScreen(Screen):
-    def error_advance(self):
-        self.manager.current = "question2"
 class LoginPage(Screen):
     def check_user(self,username,password):
         if username in users and passwords[username] == password:
            self.manager.current = "welcome"
         else:
-           blank.text = "No User Found or Password does not match"
+           self.ids.blank.text = "No User Found or Password does not match"
     def new_account(self):
         self.manager.current = "new"
 
@@ -66,8 +50,7 @@ class NewUser(Screen):
         users.append(new_username)
         if isupper(new_password) == True and islower(new_password) == True and isnumeric(new_password) == True and len(new_password)>=8:
            passwords[new_username] = new_password
-
-        self.manager.current= "login"
+           self.manager.current= "login"
 
 class WelcomeScreen(Screen):
     pass
